@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 class Vector {
 private:
     int m_size = 0;
