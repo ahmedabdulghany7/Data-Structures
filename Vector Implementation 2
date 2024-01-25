@@ -1,0 +1,56 @@
+#include <iostream>
+#include <cassert>
+using namespace std;
+class Vector {
+private:
+    int *arr = nullptr;
+    int size = 0;
+
+public:
+    Vector(int size) : size(size) {
+        if (size < 0)
+            size = 1;
+        arr = new int[size]{};
+    }
+
+    ~Vector() {
+        delete[]arr;
+        arr = nullptr;
+    }
+
+    void setValue(int index, int val) {
+        assert(0 <= index && index < size); //used to state or assert that the expression must be true
+        arr[index] = val;
+    }
+
+    int getindex(int index) {
+        assert(0 <= index && index < size); //used to state or assert that the expression must be true
+        return arr[index];
+    }
+
+    void display() {
+        for (int i = 0; i < size; ++i)
+            cout << arr[i] << " ";
+        cout << '\n';
+    }
+
+    int search(int val){
+        for (int i = 0; i < size; ++i)
+            if(arr[i]==val)
+                return i+1;
+        return -1;
+    }
+};
+
+int main() {
+    int n;
+    cin>>n;
+    Vector v(n);
+    for (int i = 0; i < n; ++i) {
+        int x; cin>>x;
+        v.setValue(i,x);
+    }
+    v.display();
+    cout<<v.search(33); //-1 if val not found
+    return 0;
+}
