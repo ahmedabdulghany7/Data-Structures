@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-class vector {
+class Vector {
 private:
     int m_size = 0;
     int m_capacity = 4;
@@ -48,7 +48,7 @@ public:
     bool is_Empty() const {
         return m_size == 0;
     }
-    ~vector(){
+    ~Vector(){
         delete[] m_data;
         m_data = nullptr;
         m_size = m_capacity = 0;
@@ -56,7 +56,7 @@ public:
 };
 
 int main() {
-    vector v;
+    Vector v;
     int n;
     cin >> n;
     for (int data, i = 0; i < n; ++i) {
